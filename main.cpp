@@ -1,14 +1,14 @@
-#include "WindowManager.cpp"
-
+#include "WindowManager.hh"
 int main()
 {
     // create the window
     //sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
-    PieceShape *p=new PieceShape();
+
+    PieceShape *p = new PieceShape();
     WindowManager *w = new WindowManager(*p);
-   
+    w->GetWindow().create(sf::VideoMode(p->GetWidth() * p->GetPieceCellSize(), p->GetHeight() * p->GetPieceCellSize()), "TETRIS");
     // run the program as long as the window is open
-    while (w.GetWindow()->isOpen())
+    while (w->GetWindow().isOpen())
     {
 
         // sf::RectangleShape rectangle(sf::Vector2f(30, 60));
@@ -18,26 +18,26 @@ int main()
         // rectangle.setOutlineThickness(2.0);
         // check all the window's events that were triggered since the last iteration of the loop
         sf::Event event;
-        while (windowManager.GetWindow()->pollEvent(event))
+        while (w->GetWindow().pollEvent(event))
         {
-            windowManager.GetWindow()->clear();
+            w->GetWindow().clear();
 
             // "close requested" event: we close the window
             if (event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
             {
-                windowManager.GetWindow()->close();
+                w->GetWindow().close();
             }
         }
 
         // clear the window with black color
-        windowManager.GetWindow()->clear(sf::Color::Black);
+        w->GetWindow().clear(sf::Color::Black);
 
         // draw everything here...
         // window.draw(...);
 
         // end the current frame
         //window.draw(rectangle);
-        windowManager.GetWindow()->display();
+        w->GetWindow().display();
     }
 
     return 0;

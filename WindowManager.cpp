@@ -2,9 +2,9 @@
 
 WindowManager::WindowManager(PieceShape p)
 {
-    _window.create(sf::VideoMode(p.GetWidth() * p.GetPieceCellSize(), p.GetHeight() * p.GetPieceCellSize()), "TETRIS");
-    _window.setFramerateLimit(60);
-
+    //_window.create(sf::VideoMode(p.GetWidth() * p.GetPieceCellSize(), p.GetHeight() * p.GetPieceCellSize()), "TETRIS");
+    //_window.setFramerateLimit(60);
+    p.GetHeight();
 }
 
 WindowManager::~WindowManager() {}

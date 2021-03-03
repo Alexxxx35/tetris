@@ -28,10 +28,3 @@ void PieceShape::SetHeight(int NewHeight)
 {
     _height = NewHeight;
 }
-PieceShape::PieceShape()
-{
-}
-
-PieceShape::~PieceShape()
-{
-}

@@ -1,4 +1,4 @@
-SRC = main.cpp
+SRC = *.cpp
 OBJ = $(SRC)
 NAME = exe
 CXX = g++

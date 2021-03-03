@@ -1,3 +1,4 @@
+/*
 #ifndef DEF_PIECEENTITY
 #define DEF_PIECEENTITY
 
@@ -17,3 +18,4 @@ public:
 
 
 #endif
+*/

@@ -3,28 +3,62 @@
 PieceShape::PieceShape() {}
 PieceShape::~PieceShape() {}
 
-int PieceShape::GetPieceCellSize()
+ void PieceShape::ChangeShapeColor(sf::Color NewColor){
+     return _shape.setFillColor(NewColor);
+ }
+
+sf::Color PieceShape::GetColor()
+{
+    return _color;
+}
+
+void PieceShape::SetColor(sf::Color NewColor)
+{
+    _color = NewColor;
+}
+
+float PieceShape::GetPieceCellSize()
 {
     return _cell_size;
 }
-void PieceShape::SetPieceCellSize(int NewCellSize)
+void PieceShape::SetPieceCellSize(float NewCellSize)
 {
     _cell_size = NewCellSize;
 }
 
-int PieceShape::GetWidth()
+float PieceShape::GetWidth()
 {
     return _width;
 }
-void PieceShape::SetWidth(int NewWidth)
+void PieceShape::SetWidth(float NewWidth)
 {
     _width = NewWidth;
 }
-int PieceShape::GetHeight()
+float PieceShape::GetHeight()
 {
     return _height;
 }
-void PieceShape::SetHeight(int NewHeight)
+void PieceShape::SetHeight(float NewHeight)
 {
     _height = NewHeight;
+}
+
+sf::RectangleShape PieceShape::GetShape()
+{
+    return _shape;
+}
+
+void PieceShape::SetShape(float x, float y)
+{
+    _shape.setSize(sf::Vector2f(x, y));
+}
+
+sf::Vector2f PieceShape::GetVector()
+{
+    return _vector;
+}
+
+void PieceShape::SetVector(float x, float y)
+{
+    _vector = sf::Vector2f(x, y);
 }

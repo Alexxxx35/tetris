@@ -8,12 +8,12 @@ int main()
     PieceShape *p = new PieceShape();
     WindowManager *w = new WindowManager(*p);
     w->GetWindow().create(sf::VideoMode(p->GetWidth() * p->GetPieceCellSize(), p->GetHeight() * p->GetPieceCellSize()), "TETRIS");
-    p->SetVector(p->GetPieceCellSize(), p->GetPieceCellSize());
-    p->SetShape(p->GetPieceCellSize(), p->GetPieceCellSize());
-    p->ChangeShapeColor(sf::Color::Red);
-
+    //p->SetSize(p->GetPieceCellSize(), p->GetPieceCellSize());
+    p->SetX(p->GetWidth() * p->GetPieceCellSize() / 2);
+    p->SetY(0);
+    // p->SetVector(p->GetX(), p->GetY());
+    // p->ColoredShape().setPosition(p->GetVector());
     // run the program as long as the window is open
-
     while (w->GetWindow().isOpen())
     {
         // check all the window's events that were triggered since the last iteration of the loop
@@ -32,8 +32,7 @@ int main()
         w->GetWindow().clear();
 
         // draw everything here...
-
-        // end the current frame
+        p->DefineShape();
         w->GetWindow().draw(p->GetShape());
         w->GetWindow().display();
     }

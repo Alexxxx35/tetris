@@ -1,7 +1,6 @@
 #ifndef DEF_WINDOWMANAGER
 #define DEF_WINDOWMANAGER
 
-#include <SFML/Graphics.hpp>
 #include "PieceShape.hh"
 class WindowManager
 {

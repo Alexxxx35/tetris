@@ -66,7 +66,7 @@ void PieceShape::SetVector(float x, float y)
 
 void PieceShape::DefineShape()
 {
-    _Shape.setSize(sf::Vector2f(_width, _height));
+    _Shape.setSize(sf::Vector2f(_cell_size, _cell_size));
     // Get the system time.
     //unsigned seed = time(0);
 
@@ -81,7 +81,7 @@ void PieceShape::DefineShape()
         {
             if (_patterns[r][y][x])
             {
-                _Shape.setPosition(sf::Vector2f(_X,_Y));
+                _Shape.setPosition(sf::Vector2f(_X+x*_cell_size,_Y+y*_cell_size));
             }
         }
     }

@@ -1,6 +1,6 @@
 SRC = *.cpp
 OBJ = $(SRC)
-NAME = exe
+NAME = test/exe.out
 CXX = g++
 CXXFLAGS = -Wall -Wextra -Wpedantic -Werror -std=c++14
 LBFLAGS = -lsfml-graphics -lsfml-window -lsfml-system

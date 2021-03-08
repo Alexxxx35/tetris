@@ -9,8 +9,8 @@ all:	$(NAME)
 $(NAME):	
 			$(CXX)	$(OBJ) -o $(NAME) $(CXXFLAGS) $(LBFLAGS)
 
-clean: 
-	$(RM) $(OBJ)
+# clean: 
+# 	$(RM) $(OBJ)
 
 fclean: clean
 	$(RM)	$(NAME)

@@ -11,9 +11,9 @@ all:
 # erase: 
 # 	$(RM) $(OBJ)
 
-fclean: clean
+fclean: 
 	$(RM)	$(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+# .PHONY: all fclean re

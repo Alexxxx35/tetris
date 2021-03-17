@@ -6,14 +6,15 @@ CXXFLAGS = -Wall -Wextra -Wpedantic -Werror -std=c++14
 LBFLAGS = -lsfml-graphics -lsfml-window -lsfml-system
 RM = rm -f
 all:	$(NAME)
+
 $(NAME):	
-			$(CXX)	$(OBJ) -o $(NAME) $(CXXFLAGS) $(LBFLAGS)
+			$(CXX)	$(OBJ) -o $(NAME) $(CXXFLAGS) $(LBFLAGS) -g
 
 clean: 
 	$(RM) $(OBJ)
 
-fclean: clean
-	$(RM)	$(NAME)
+fclean: 
+	$(RM) $(NAME)
 
 re: fclean all
 

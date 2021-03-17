@@ -14,8 +14,11 @@ int main()
     // p->SetVector(p->GetX(), p->GetY());
     // p->ColoredShape().setPosition(p->GetVector());
     // run the program as long as the window is open
+    p->DefineShape();
+
     while (w->GetWindow().isOpen())
     {
+
         // check all the window's events that were triggered since the last iteration of the loop
         sf::Event event;
         while (w->GetWindow().pollEvent(event))
@@ -32,7 +35,7 @@ int main()
         w->GetWindow().clear();
 
         // draw everything here...
-        p->DefineShape();
+        // p->DefineShape();
         w->GetWindow().draw(p->GetShape());
         w->GetWindow().display();
     }

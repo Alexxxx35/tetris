@@ -9,7 +9,7 @@ private:
 
 public:
     window(/* args */);
-    sf::RenderWindow getWin();
+    sf::RenderWindow& getWin();
     ~window();
 };
 

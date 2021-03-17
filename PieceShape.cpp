@@ -1,6 +1,6 @@
 #include "PieceShape.hh"
 
-PieceShape::PieceShape(/* args */)
+PieceShape::PieceShape()
 {
 }
 
@@ -31,4 +31,16 @@ void PieceShape::setWidth(int newValue)
 void PieceShape::setHeight(int newValue)
 {
     _height = newValue;
+}
+sf::RectangleShape PieceShape::getRect()
+{
+    return _rect;
+}
+sf::Vector2f PieceShape::getVect()
+{
+    return _vect;
+}
+void PieceShape::setVect(sf::Vector2f newVect)
+{
+    _vect = newVect;
 }

@@ -8,7 +8,7 @@ window::~window()
 {
 }
 
-sf::RenderWindow window::getWin()
+sf::RenderWindow &window::getWin()
 {
     return _win;
 }

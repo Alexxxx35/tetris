@@ -7,6 +7,8 @@ int main()
     win->getWin().create(sf::VideoMode(p->getWidth() * p->getCellSize(),
                                        p->getHeight() * p->getCellSize()),
                          "Tetris");
+    p->setVect(sf::Vector2f(p->getCellSize(), p->getCellSize()));
+    p->getRect()
     while (win->getWin().isOpen())
     {
         sf::Event e;

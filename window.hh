@@ -5,21 +5,12 @@
 class window
 {
 private:
-    int _cell_size = 25;
-    int width = 10;
-    int height = 20;
     sf::RenderWindow _win;
+
 public:
     window(/* args */);
     sf::RenderWindow getWin();
-    int getCell_size();
-    int getWidth();
-    int getHeight();
-    void setCell_size();
-    void setWidth();
-    void setHeight();
     ~window();
 };
-
 
 #endif

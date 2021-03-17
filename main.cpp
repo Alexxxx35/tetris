@@ -1,16 +1,14 @@
 #include "window.hh"
 #include "PieceShape.hh"
+#include <iostream>
 int main()
 {
     PieceShape *p = new PieceShape();
-    window *win = new window(*p);
-
-    win->getWin().create(sf::VideoMode(p->getWidth() * p->getCellSize(),
-                                       p->getHeight() * p->getCellSize()),
-                         "Tetris");
     p->setVect(sf::Vector2f(p->getCellSize(), p->getCellSize()));
     p->getRect().setSize(sf::Vector2f(p->getVect()));
-    
+    window *win = new window(p);
+
+    //sf::RectangleShape cell(sf::Vector2f(50.0, 50.0));
     while (win->getWin().isOpen())
     {
         sf::Event e;
@@ -22,8 +20,8 @@ int main()
             }
         }
         win->getWin().clear();
-        p->getRect().setFillColor(sf::Color::Green);
         win->getWin().draw(p->getRect());
+        //win->getWin().draw(cell);
         win->getWin().display();
     }
     return 0;

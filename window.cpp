@@ -1,13 +1,11 @@
 #include "window.hh"
 #include "PieceShape.hh"
 
-window::window(PieceShape p)
+window::window(PieceShape *p)
 {
-    p.getCellSize();
-    p.getHeight();
-    p.getRect();
-    p.getVect();
-    p.getWidth();
+    _win.create(sf::VideoMode(p->getWidth() * p->getCellSize(),
+                                       p->getHeight() * p->getCellSize()),
+                         "Tetris");
 }
 
 window::~window()

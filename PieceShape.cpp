@@ -8,27 +8,27 @@ PieceShape::~PieceShape()
 {
 }
 
-int PieceShape::getCellSize()
+float PieceShape::getCellSize()
 {
     return _cell_size;
 }
-int PieceShape::getWidth()
+float PieceShape::getWidth()
 {
     return _width;
 }
-int PieceShape::getHeight()
+float PieceShape::getHeight()
 {
     return _height;
 }
-void PieceShape::setCellSize(int newValue)
+void PieceShape::setCellSize(float newValue)
 {
     _cell_size = newValue;
 }
-void PieceShape::setWidth(int newValue)
+void PieceShape::setWidth(float newValue)
 {
     _width = newValue;
 }
-void PieceShape::setHeight(int newValue)
+void PieceShape::setHeight(float newValue)
 {
     _height = newValue;
 }

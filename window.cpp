@@ -1,7 +1,13 @@
 #include "window.hh"
+#include "PieceShape.hh"
 
-window::window(/* args */)
+window::window(PieceShape p)
 {
+    p.getCellSize();
+    p.getHeight();
+    p.getRect();
+    p.getVect();
+    p.getWidth();
 }
 
 window::~window()

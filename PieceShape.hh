@@ -8,7 +8,7 @@ private:
     int _cell_size = 25;
     int _width = 10;
     int _height = 20;
-    sf::RectangleShape _rect(sf::Vector2f Vect);
+    sf::RectangleShape _rect;
     sf::Vector2f _vect;
 
 public:

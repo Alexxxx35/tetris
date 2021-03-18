@@ -21,6 +21,7 @@ public:
     void setWidth(float newValue);
     void setHeight(float newValue);
     sf::RectangleShape getRect();
+    void setRect(sf::RectangleShape newRect);
     sf::Vector2f getVect();
     void setVect(sf::Vector2f newVect);
 };

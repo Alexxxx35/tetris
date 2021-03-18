@@ -5,11 +5,15 @@ int main()
 {
     PieceShape *p = new PieceShape();
     p->setVect(sf::Vector2f(p->getCellSize(), p->getCellSize()));
-    p->getRect().setSize(sf::Vector2f(p->getVect()));
-    p->getRect().setPosition(0, 0);
+    //std::cout << p->getVect().x << std::endl;
+    p->setRect(p->getRect()).setSize(sf::Vector2f(p->getVect()));
+    std::cout << p->getRect().getSize().x << std::endl;
+    p->getRect().setPosition(30, 30);
     p->getRect().setFillColor(sf::Color::Red);
-    window *win = new window(p);
-
+    window *win = new window(*p);
+    win->getWin().create(sf::VideoMode(p->getWidth() * p->getCellSize(),
+                                       p->getHeight() * p->getCellSize()),
+                         "Tetris");
     //sf::RectangleShape cell(sf::Vector2f(50.0, 50.0));
     while (win->getWin().isOpen())
     {
@@ -22,7 +26,8 @@ int main()
             }
         }
         win->getWin().clear();
-        win->getWin().draw(p->getRect());
+        sf::RectangleShape cell2 = p->getRect();
+        win->getWin().draw(cell2);
         //win->getWin().draw(cell);
         win->getWin().display();
     }

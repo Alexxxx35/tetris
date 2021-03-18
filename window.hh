@@ -8,7 +8,8 @@ class window
 private:
     sf::RenderWindow _win;
 public:
-    window(PieceShape *p);
+    window(PieceShape p);
+    PieceShape getPiece();
     sf::RenderWindow& getWin();
     ~window();
 };

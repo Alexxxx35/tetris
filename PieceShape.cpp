@@ -36,6 +36,12 @@ sf::RectangleShape PieceShape::getRect()
 {
     return _rect;
 }
+
+void PieceShape::setRect(sf::RectangleShape newRect)
+{
+    _rect = newRect;
+}
+
 sf::Vector2f PieceShape::getVect()
 {
     return _vect;

@@ -6,6 +6,8 @@ int main()
     PieceShape *p = new PieceShape();
     p->setVect(sf::Vector2f(p->getCellSize(), p->getCellSize()));
     p->getRect().setSize(sf::Vector2f(p->getVect()));
+    p->getRect().setPosition(0, 0);
+    p->getRect().setFillColor(sf::Color::Red);
     window *win = new window(p);
 
     //sf::RectangleShape cell(sf::Vector2f(50.0, 50.0));

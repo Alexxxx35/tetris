@@ -1,5 +1,7 @@
 #include "WindowManager.hh"
 
+WindowManager::WindowManager(){}
+
 WindowManager::WindowManager(PieceShape p)
 {
     //_window.create(sf::VideoMode(p.GetWidth() * p.GetPieceCellSize(), p.GetHeight() * p.GetPieceCellSize()), "TETRIS");
@@ -9,6 +11,7 @@ WindowManager::WindowManager(PieceShape p)
 
 WindowManager::~WindowManager() {}
 
-sf::RenderWindow& WindowManager::GetWindow(){
+sf::RenderWindow &WindowManager::GetWindow()
+{
     return _window;
 }

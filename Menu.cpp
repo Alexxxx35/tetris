@@ -3,6 +3,7 @@
 #include "iostream"
 Menu::Menu(sf::RenderWindow &window)
 {
+    selectedItemIndex = 0;
     _width = window.getSize().x;
     _height = window.getSize().y;
     font.loadFromFile("arial.ttf");
@@ -32,6 +33,11 @@ Menu::Menu(sf::RenderWindow &window)
     }
 }
 
+int Menu::getSelectedItemIndex()
+{
+    return selectedItemIndex;
+}
+
 void Menu::draw(sf::RenderWindow &window)
 {
 
@@ -49,13 +55,12 @@ sf::Text *Menu::getText()
 
 void Menu::MoveUp()
 {
-    if (selectedItemIndex > 0)
+    if (selectedItemIndex < 0)
     {
-        if (selectedItemIndex < 0)
-        {
-            selectedItemIndex = 0;
-        }
-
+        selectedItemIndex = 0;
+    }
+    else if (selectedItemIndex > 0)
+    {
         _text[selectedItemIndex].setFillColor(sf::Color::White);
         selectedItemIndex--;
         _text[selectedItemIndex].setFillColor(sf::Color::Red);
@@ -64,12 +69,12 @@ void Menu::MoveUp()
 
 void Menu::MoveDown()
 {
-    if (selectedItemIndex > numberOfItems)
+    if (selectedItemIndex >= numberOfItems)
     {
-        if (selectedItemIndex > numberOfItems)
-        {
-            selectedItemIndex = numberOfItems;
-        }
+        selectedItemIndex = numberOfItems - 1;
+    }
+    else if (selectedItemIndex < numberOfItems - 1)
+    {
         _text[selectedItemIndex].setFillColor(sf::Color::White);
         selectedItemIndex++;
         _text[selectedItemIndex].setFillColor(sf::Color::Red);

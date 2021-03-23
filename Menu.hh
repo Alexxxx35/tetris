@@ -14,6 +14,7 @@ private:
     int selectedItemIndex;
 
 public:
+    int getSelectedItemIndex();
     void draw(sf::RenderWindow &window);
     sf::Text *getText();
     void MoveUp();

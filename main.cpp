@@ -4,8 +4,6 @@
 #include <iostream>
 int main()
 {
-    // create the window
-    //sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
     PieceShape *p = new PieceShape();
     WindowManager *menuWindow = new WindowManager();
     WindowManager *w = new WindowManager(*p);
@@ -17,8 +15,11 @@ int main()
     p->SetX(p->GetWidth() * p->GetPieceCellSize() / 2);
     p->SetY(0);
 
+//MENU WINDOW
+
     while (menuWindow->GetWindow().isOpen())
     {
+        std::cout << m->getSelectedItemIndex() << std::endl;
 
         sf::Event event;
         while (menuWindow->GetWindow().pollEvent(event))
@@ -26,15 +27,27 @@ int main()
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
             {
                 m->MoveUp();
-                break;
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
             {
                 m->MoveDown();
-                break;
             }
 
-            // "close requested" event: we close the window
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && m->getSelectedItemIndex() == 0)
+            {
+                menuWindow->GetWindow().close();
+            }
+
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && m->getSelectedItemIndex() == 1)
+            {
+                menuWindow->GetWindow().close();
+            }
+
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && m->getSelectedItemIndex() == 2)
+            {
+                menuWindow->GetWindow().close();
+            }
+
             if (event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
             {
                 menuWindow->GetWindow().close();
@@ -44,6 +57,9 @@ int main()
             menuWindow->GetWindow().display();
         }
     }
+
+//GAME WINDOW
+
     while (w->GetWindow().isOpen())
     {
 

@@ -7,18 +7,18 @@ Menu::Menu(sf::RenderWindow &window)
     {
         throw 1;
     }
-    // if (!_texture.loadFromFile("src/web-button.png"))
-    // {
-    //     throw 1;
-    // }
+    if (!_texture.loadFromFile("src/tetris.jpeg"))
+    {
+        throw 1;
+    }
     _width = window.getSize().x;
     _height = window.getSize().y;
     _font.loadFromFile("arial.ttf");
-    _texture.loadFromFile("src/web-button.png", sf::IntRect(10, 10, 32, 32));
-    // _sprite.setTexture(_texture);
-    // _sprite.setColor(sf::Color::White);
-    // _sprite.setTextureRect(sf::IntRect(0, 0, 160, 30));
-    // _sprite.setPosition(100, 100);
+    _texture.loadFromFile("src/tetris.jpeg", sf::IntRect(10, 10, 32, 32));
+    _sprite.setTexture(_texture);
+    _sprite.setColor(sf::Color::White);
+    _sprite.setTextureRect(sf::IntRect(0, 0, 160, 30));
+    _sprite.setPosition(100, 100);
     for (int i = 0; i < numberOfItems; i++)
     {
         if (i == 0)
@@ -58,8 +58,8 @@ void Menu::draw(sf::RenderWindow &window)
     {
 
         window.draw(_text[i]);
-        window.draw(_sprite);
     }
+    window.draw(_sprite);
 }
 
 sf::Text *Menu::getText()

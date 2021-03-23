@@ -80,7 +80,6 @@ int main()
 
         // draw everything here...
         p->DefineShape();
-        //w->GetWindow().draw(m->getText());
         w->GetWindow().draw(p->GetShape());
         w->GetWindow().display();
     }

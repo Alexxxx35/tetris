@@ -15,50 +15,100 @@ int main()
     p->SetX(p->GetWidth() * p->GetPieceCellSize() / 2);
     p->SetY(0);
 
-//MENU WINDOW
+    //MENU WINDOW
 
     while (menuWindow->GetWindow().isOpen())
     {
-        std::cout << m->getSelectedItemIndex() << std::endl;
+        //std::cout << m->getSelectedItemIndex() << std::endl;
 
         sf::Event event;
         while (menuWindow->GetWindow().pollEvent(event))
         {
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+            if (!menuWindow->getPause())
             {
-                m->MoveUp();
-            }
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-            {
-                m->MoveDown();
+
+                if (event.type == sf::Event::KeyReleased)
+                {
+                    if (event.key.code == sf::Keyboard::Space)
+                    {
+                        menuWindow->inversePause();
+                    }
+                }
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+                {
+                    m->MoveUp();
+                }
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+                {
+                    m->MoveDown();
+                }
+
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && m->getSelectedItemIndex() == 0)
+                {
+                    menuWindow->GetWindow().close();
+                }
+
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && m->getSelectedItemIndex() == 1)
+                {
+                    menuWindow->GetWindow().close();
+                }
+
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && m->getSelectedItemIndex() == 2)
+                {
+                    menuWindow->GetWindow().close();
+                }
+
+                if (event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+                {
+                    menuWindow->GetWindow().close();
+                }
+                menuWindow->GetWindow().clear();
+                m->draw(menuWindow->GetWindow());
+                menuWindow->GetWindow().display();
             }
 
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && m->getSelectedItemIndex() == 0)
+            else if (menuWindow->getPause())
             {
-                menuWindow->GetWindow().close();
-            }
+                if (event.type == sf::Event::KeyReleased)
+                {
+                    if (event.key.code == sf::Keyboard::Space)
+                    {
+                        menuWindow->inversePause();
+                    }
+                }
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+                {
+                    m->MoveUp();
+                }
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+                {
+                    m->MoveDown();
+                }
 
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && m->getSelectedItemIndex() == 1)
-            {
-                menuWindow->GetWindow().close();
-            }
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && m->getSelectedItemIndex() == 0)
+                {
+                    menuWindow->GetWindow().close();
+                }
 
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && m->getSelectedItemIndex() == 2)
-            {
-                menuWindow->GetWindow().close();
-            }
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && m->getSelectedItemIndex() == 1)
+                {
+                    menuWindow->GetWindow().close();
+                }
 
-            if (event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-            {
-                menuWindow->GetWindow().close();
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && m->getSelectedItemIndex() == 2)
+                {
+                    menuWindow->GetWindow().close();
+                }
+
+                if (event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+                {
+                    menuWindow->GetWindow().close();
+                }
             }
-            menuWindow->GetWindow().clear();
-            m->draw(menuWindow->GetWindow());
-            menuWindow->GetWindow().display();
         }
     }
 
-//GAME WINDOW
+    //GAME WINDOW
 
     while (w->GetWindow().isOpen())
     {

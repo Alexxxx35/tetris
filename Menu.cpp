@@ -16,7 +16,6 @@ Menu::Menu(sf::RenderWindow &window)
     _font.loadFromFile("arial.ttf");
     _texture.loadFromFile("src/tetris.jpeg", sf::IntRect(10, 10, 32, 32));
     _sprite.setTexture(_texture);
-    _sprite.setColor(sf::Color::White);
     _sprite.setTextureRect(sf::IntRect(0, 0, 160, 30));
     _sprite.setPosition(100, 100);
     for (int i = 0; i < numberOfItems; i++)
@@ -40,7 +39,7 @@ Menu::Menu(sf::RenderWindow &window)
         _text[i].setFont(_font);
         _text[i].setFillColor(sf::Color::White);
         _text[i].setPosition(sf::Vector2f(_width / 2, (i * _height / numberOfItems)));
-        std::cout << (i * _height / numberOfItems) << std::endl;
+        //std::cout << (i * _height / numberOfItems) << std::endl;
     }
 }
 Menu::~Menu()

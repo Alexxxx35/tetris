@@ -9,10 +9,12 @@ public:
     ~WindowManager();
     WindowManager();
     WindowManager(PieceShape p);
-    sf::RenderWindow& GetWindow();
+    sf::RenderWindow &GetWindow();
+    bool getPause();
+    void inversePause();
 
 private:
+    bool _pause = false;
     sf::RenderWindow _window;
-
 };
 #endif

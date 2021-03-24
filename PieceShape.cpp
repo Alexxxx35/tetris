@@ -73,7 +73,7 @@ void PieceShape::DefineShape()
     // Seed the random number generator.
     //srand(seed);
     int r = rand() % 7;
-    std::cout << "random value: " << r << std::endl;
+    //std::cout << "random value: " << r << std::endl;
     _Shape.setFillColor(_listOfColors[r]);
     for (int y = 0; y < 4; y++)
     {

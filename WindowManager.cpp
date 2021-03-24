@@ -1,6 +1,6 @@
 #include "WindowManager.hh"
 
-WindowManager::WindowManager(){}
+WindowManager::WindowManager() {}
 
 WindowManager::WindowManager(PieceShape p)
 {
@@ -14,4 +14,14 @@ WindowManager::~WindowManager() {}
 sf::RenderWindow &WindowManager::GetWindow()
 {
     return _window;
+}
+
+bool WindowManager::getPause()
+{
+    return _pause;
+}
+
+void WindowManager::inversePause()
+{
+    _pause = !_pause;
 }

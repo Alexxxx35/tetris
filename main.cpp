@@ -66,6 +66,7 @@ int main()
                     menuWindow->GetWindow().close();
                 }
                 menuWindow->GetWindow().clear();
+                //menuWindow->GetWindow().draw(m->getSprite());
                 m->draw(menuWindow->GetWindow());
                 menuWindow->GetWindow().display();
             }

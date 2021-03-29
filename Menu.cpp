@@ -7,23 +7,27 @@ Menu::Menu(sf::RenderWindow &window)
     {
         throw 1;
     }
-    if (!_texture.loadFromFile("src/tetris.jpeg"))
+    // if (!_texture.loadFromFile("src/tetris.jpeg"))
+    // {
+    //     throw 1;
+    // }
+    if (!_titleFont.loadFromFile("disko.ttf"))
     {
         throw 1;
     }
 
-    _width = window.getSize().x;
-    _height = window.getSize().y;
+    _width = window.getSize().x;  // => adapter la sprite a la taille de la fenetre
+    _height = window.getSize().y; // => adapter la sprite a la taille de la fenetre
     _font.loadFromFile("arial.ttf");
-    _texture.loadFromFile("src/tetris.jpeg", sf::IntRect(10, 10, 32, 32));
-    _sprite.setTexture(_texture);
-    _sprite.setTextureRect(sf::IntRect(0, 0, 160, 30));
-    _sprite.setPosition(100, 100);
+    //_sprite.setTexture(_texture);
+    _sprite.setScale(_width / _sprite.getLocalBounds().width,
+                     _height / _sprite.getLocalBounds().height);
     for (int i = 0; i < numberOfItems; i++)
     {
         if (i == 0)
         {
-            _text[i].setString("TETRIS");
+            _text[0].setString("TETRIS");
+            _text[0].setFont(_titleFont);
         }
         if (i == 1)
         {
@@ -37,7 +41,10 @@ Menu::Menu(sf::RenderWindow &window)
         {
             _text[i].setString("Exit");
         }
-        _text[i].setFont(_font);
+        if (i > 0)
+        {
+            _text[i].setFont(_font);
+        }
         _text[i].setFillColor(sf::Color::White);
         _text[i].setPosition(sf::Vector2f(_width / 2, (i * _height / numberOfItems)));
         //std::cout << (i * _height / numberOfItems) << std::endl;

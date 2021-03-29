@@ -8,7 +8,7 @@
             "name": "(gdb) Lancer",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/exe",
+            "program": "${workspaceFolder}/exefake",
             "args": [],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",

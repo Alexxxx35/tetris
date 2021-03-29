@@ -4,7 +4,7 @@ NAME = exe
 DEBUGNAME = exefake
 CXX = g++
 CXXFLAGS = -Wall -Wextra -Wpedantic -Werror -std=c++14
-DEBUGCXXFLAGS = -Wall -Wextra -Wpedantic -Werror -std=c++14
+DEBUGCXXFLAGS = -Wall -Wextra -Wpedantic -Werror -std=c++14 -g
 LBFLAGS = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 RM = rm -f
 all:
@@ -13,7 +13,7 @@ all:
 # erase: 
 # 	$(RM) $(OBJ)
 debug:
-	$(CXX)	$(OBJ) -o $(DEBUGNAME) -g $(DEBUGCXXFLAGS) $(LBFLAGS)
+	$(CXX)	$(OBJ) -o $(DEBUGNAME) $(DEBUGCXXFLAGS) $(LBFLAGS)
 
 
 fclean: 

@@ -8,6 +8,7 @@ class Menu
 private:
     int selectedItem;
     sf::Font _font;
+    sf::Font _titleFont;
     sf::Text _text[4];
     unsigned int _width;  //normally take value of window
     unsigned int _height; //normally take value of window
@@ -16,7 +17,7 @@ private:
     sf::Texture _texture;
     sf::Sprite _sprite;
     sf::Music _music;
-
+    sf::Vector2f _window_size;
 public:
     void launchMusic(std::string music_path);
     void stopMusic();

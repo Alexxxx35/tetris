@@ -6,14 +6,13 @@
 class Menu
 {
 private:
-    int selectedItem;
     sf::Font _font;
     sf::Font _titleFont;
     sf::Text _text[4];
     unsigned int _width;  //normally take value of window
     unsigned int _height; //normally take value of window
     int const numberOfItems = 4;
-    int selectedItemIndex = 0;
+    int selectedItemIndex = 1;
     sf::Texture _texture;
     sf::Sprite _sprite;
     sf::Music _music;

@@ -28,6 +28,9 @@ Menu::Menu(sf::RenderWindow &window)
         {
             _text[0].setString("TETRIS");
             _text[0].setFont(_titleFont);
+            _text[0].setFillColor(sf::Color::Red);
+            _text[0].setCharacterSize(48);
+            _text[0].setPosition(sf::Vector2f(_width / 2.4, (i * _height / numberOfItems)));
         }
         if (i == 1)
         {
@@ -43,10 +46,10 @@ Menu::Menu(sf::RenderWindow &window)
         }
         if (i > 0)
         {
-            _text[i].setFont(_font);
+            _text[i].setFont(_titleFont);
+            _text[i].setFillColor(sf::Color::White);
+            _text[i].setPosition(sf::Vector2f(_width / 2.2, (i * _height / numberOfItems)));
         }
-        _text[i].setFillColor(sf::Color::White);
-        _text[i].setPosition(sf::Vector2f(_width / 2, (i * _height / numberOfItems)));
         //std::cout << (i * _height / numberOfItems) << std::endl;
     }
 }

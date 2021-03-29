@@ -1,6 +1,7 @@
 #ifndef DEF_MENU
 #define DEF_MENU
 #include "SFML/Graphics.hpp"
+#include "SFML/Audio.hpp"
 #include "WindowManager.hh"
 class Menu
 {
@@ -14,8 +15,13 @@ private:
     int selectedItemIndex = 0;
     sf::Texture _texture;
     sf::Sprite _sprite;
+    sf::Music _music;
 
 public:
+    void launchMusic(std::string music_path);
+    void stopMusic();
+    void pauseMusic();
+    void relaunchMusic();
     int getSelectedItemIndex();
     sf::Texture getTexture();
     sf::Sprite getSprite();

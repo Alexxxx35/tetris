@@ -11,16 +11,17 @@ int main()
     w->GetWindow().create(sf::VideoMode(p->GetWidth() * p->GetPieceCellSize(), p->GetHeight() * p->GetPieceCellSize()), "TETRIS");
     menuWindow->GetWindow().create(sf::VideoMode(600, 480), "MENU");
     Menu *m = new Menu(menuWindow->GetWindow());
+    //m->launchMusic();
 
     p->SetX(p->GetWidth() * p->GetPieceCellSize() / 2);
     p->SetY(0);
 
     //MENU WINDOW
+    m->launchMusic("src/tetris-game-boy-02-a-type.wav");
 
     while (menuWindow->GetWindow().isOpen())
     {
         //std::cout << m->getSelectedItemIndex() << std::endl;
-
         sf::Event event;
         while (menuWindow->GetWindow().pollEvent(event))
         {
@@ -31,6 +32,7 @@ int main()
                 {
                     if (event.key.code == sf::Keyboard::Space)
                     {
+                        m->pauseMusic();
                         menuWindow->inversePause();
                     }
                 }
@@ -45,6 +47,7 @@ int main()
 
                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && m->getSelectedItemIndex() == 0)
                 {
+                    m->stopMusic();
                     menuWindow->GetWindow().close();
                 }
 
@@ -73,6 +76,7 @@ int main()
                 {
                     if (event.key.code == sf::Keyboard::Space)
                     {
+                        m->relaunchMusic();
                         menuWindow->inversePause();
                     }
                 }
@@ -102,14 +106,15 @@ int main()
 
                 if (event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
                 {
+                    menuWindow->stopMusic();
                     menuWindow->GetWindow().close();
                 }
             }
         }
     }
-
+    m->stopMusic();
     //GAME WINDOW
-
+    w->launchMusic("src/tetris-game-boy-03-b-type.wav");
     while (w->GetWindow().isOpen())
     {
 

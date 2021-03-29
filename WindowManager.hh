@@ -12,9 +12,14 @@ public:
     sf::RenderWindow &GetWindow();
     bool getPause();
     void inversePause();
+    void launchMusic(std::string music_path);
+    void stopMusic();
+    void pauseMusic();
+    void relaunchMusic();
 
 private:
     bool _pause = false;
     sf::RenderWindow _window;
+    sf::Music _music;
 };
 #endif

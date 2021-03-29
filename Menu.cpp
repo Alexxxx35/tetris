@@ -11,6 +11,7 @@ Menu::Menu(sf::RenderWindow &window)
     {
         throw 1;
     }
+
     _width = window.getSize().x;
     _height = window.getSize().y;
     _font.loadFromFile("arial.ttf");
@@ -99,7 +100,35 @@ void Menu::MoveDown()
 //     return _texture;
 // }
 
-// sf::Sprite Menu::getSprite()
-// {
-//     return _sprite;
+sf::Sprite Menu::getSprite()
+{
+    return _sprite;
+}
+
+// sf::Music Menu::getMusic(){
+//     return _music;
 // }
+
+void Menu::launchMusic(std::string music_path)
+{
+    if (!_music.openFromFile(music_path))
+    {
+        throw 1;
+    }
+    return _music.play();
+}
+
+void Menu::relaunchMusic()
+{
+    return _music.play();
+}
+
+void Menu::stopMusic()
+{
+    return _music.stop();
+}
+
+void Menu::pauseMusic()
+{
+    return _music.pause();
+}

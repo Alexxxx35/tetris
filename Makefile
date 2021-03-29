@@ -5,7 +5,7 @@ DEBUGNAME = exefake
 CXX = g++
 CXXFLAGS = -Wall -Wextra -Wpedantic -Werror -std=c++14
 DEBUGCXXFLAGS = -Wall -Wextra -Wpedantic -Werror -std=c++14
-LBFLAGS = -lsfml-graphics -lsfml-window -lsfml-system
+LBFLAGS = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 RM = rm -f
 all:
 	$(CXX)	$(OBJ) -o $(NAME) $(CXXFLAGS) $(LBFLAGS)

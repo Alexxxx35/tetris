@@ -50,6 +50,7 @@
         "concepts": "cpp",
         "ranges": "cpp",
         "cinttypes": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "set": "cpp"
     }
 }

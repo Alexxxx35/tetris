@@ -17,7 +17,11 @@ private:
     sf::Sprite _sprite;
     sf::Music _music;
     sf::Vector2f _window_size;
+    bool _underligned = false;
+
 public:
+    void unUnderlignText(int i);
+    void underlignText(int i);
     void launchMusic(std::string music_path);
     void stopMusic();
     void pauseMusic();
@@ -26,7 +30,7 @@ public:
     sf::Texture getTexture();
     sf::Sprite getSprite();
     void draw(sf::RenderWindow &window);
-    sf::Text *getText();
+    sf::Vector2f getTextPosition(int i);
     void MoveUp();
     void MoveDown();
     Menu(sf::RenderWindow &window);

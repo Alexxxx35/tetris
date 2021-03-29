@@ -21,12 +21,30 @@ int main()
 
     while (menuWindow->GetWindow().isOpen())
     {
+
         //std::cout << m->getSelectedItemIndex() << std::endl;
         sf::Event event;
         while (menuWindow->GetWindow().pollEvent(event))
         {
+            int x = sf::Mouse::getPosition(menuWindow->GetWindow()).x;
+            int y = sf::Mouse::getPosition(menuWindow->GetWindow()).y;
             if (!menuWindow->getPause())
             {
+                if (event.type == sf::Event::MouseWheelMoved)
+                {
+                    std::cout << "wheel movement: " << event.mouseWheel.delta << std::endl;
+                    std::cout << "mouse x: " << event.mouseWheel.x << std::endl;
+                    std::cout << "mouse y: " << event.mouseWheel.y << std::endl;
+                }
+
+                if (x >= 273 && x <= 356 && y >= 130 && y <= 154)
+                {
+                    m->underlignText(1);
+                }
+                else
+                {
+                    m->unUnderlignText(1);
+                }
 
                 if (event.type == sf::Event::KeyReleased)
                 {

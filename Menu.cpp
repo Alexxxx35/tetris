@@ -72,9 +72,9 @@ void Menu::draw(sf::RenderWindow &window)
     }
 }
 
-sf::Text *Menu::getText()
+sf::Vector2f Menu::getTextPosition(int i)
 {
-    return _text;
+    return _text[i].getPosition();
 }
 
 void Menu::MoveUp()
@@ -103,6 +103,16 @@ void Menu::MoveDown()
         selectedItemIndex++;
         _text[selectedItemIndex].setFillColor(sf::Color::Red);
     }
+}
+
+void Menu::underlignText(int i)
+{
+    return _text[i].setStyle(sf::Text::Underlined);
+}
+
+void Menu::unUnderlignText(int i)
+{
+    return _text[i].setStyle(sf::Text::Regular);
 }
 
 // sf::Texture Menu::getTexture()

@@ -16,7 +16,6 @@ public:
     void stopMusic();
     void pauseMusic();
     void relaunchMusic();
-
 private:
     bool _pause = false;
     sf::RenderWindow _window;

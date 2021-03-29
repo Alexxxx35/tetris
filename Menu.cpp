@@ -7,10 +7,10 @@ Menu::Menu(sf::RenderWindow &window)
     {
         throw 1;
     }
-    // if (!_texture.loadFromFile("src/tetris.jpeg"))
-    // {
-    //     throw 1;
-    // }
+    if (!_texture.loadFromFile("src/tetris_background.jpg"))
+    {
+        throw 1;
+    }
     if (!_titleFont.loadFromFile("disko.ttf"))
     {
         throw 1;
@@ -19,18 +19,18 @@ Menu::Menu(sf::RenderWindow &window)
     _width = window.getSize().x;  // => adapter la sprite a la taille de la fenetre
     _height = window.getSize().y; // => adapter la sprite a la taille de la fenetre
     _font.loadFromFile("arial.ttf");
-    //_sprite.setTexture(_texture);
+    _sprite.setTexture(_texture);
     _sprite.setScale(_width / _sprite.getLocalBounds().width,
                      _height / _sprite.getLocalBounds().height);
     for (int i = 0; i < numberOfItems; i++)
     {
         if (i == 0)
         {
-            _text[0].setString("TETRIS");
-            _text[0].setFont(_titleFont);
-            _text[0].setFillColor(sf::Color::Red);
-            _text[0].setCharacterSize(48);
-            _text[0].setPosition(sf::Vector2f(_width / 2.4, (i * _height / numberOfItems)));
+            _text[i].setString("TETRIS");
+            _text[i].setFont(_titleFont);
+            _text[i].setFillColor(sf::Color::Red);
+            _text[i].setCharacterSize(48);
+            _text[i].setPosition(sf::Vector2f(_width / 2.4, (i * _height / numberOfItems)));
         }
         if (i == 1)
         {
@@ -48,6 +48,7 @@ Menu::Menu(sf::RenderWindow &window)
         {
             _text[i].setFont(_titleFont);
             _text[i].setFillColor(sf::Color::White);
+            _text[i].setCharacterSize(32);
             _text[i].setPosition(sf::Vector2f(_width / 2.2, (i * _height / numberOfItems)));
         }
         //std::cout << (i * _height / numberOfItems) << std::endl;
@@ -63,13 +64,12 @@ int Menu::getSelectedItemIndex()
 
 void Menu::draw(sf::RenderWindow &window)
 {
-
+    window.draw(_sprite);
     for (int i = 0; i < numberOfItems; i++)
     {
 
         window.draw(_text[i]);
     }
-    window.draw(_sprite);
 }
 
 sf::Text *Menu::getText()

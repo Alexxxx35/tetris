@@ -105,21 +105,20 @@ int main()
                 m->draw(menuWindow->GetWindow());
                 menuWindow->GetWindow().display();
             }
+        }
+        if (!menuWindow->getIsMenu())
+        {
 
-            if (!menuWindow->getIsMenu())
+            if (event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
             {
-
-                if (event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-                {
-                    menuWindow->GetWindow().close();
-                    break;
-                }
-
-                menuWindow->GetWindow().clear();
-                p->DefineShape();
-                menuWindow->GetWindow().draw(p->GetShape());
-                menuWindow->GetWindow().display();
+                menuWindow->GetWindow().close();
+                break;
             }
+
+            menuWindow->GetWindow().clear();
+            p->DefineShape();
+            menuWindow->GetWindow().draw(p->GetShape());
+            menuWindow->GetWindow().display();
         }
     }
     return 0;

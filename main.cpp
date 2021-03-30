@@ -25,11 +25,9 @@ int main()
         {
             if (menuWindow->getIsMenu())
             {
-                std::cout << m->getSelectedItemIndex();
                 int x = sf::Mouse::getPosition(menuWindow->GetWindow()).x;
                 int y = sf::Mouse::getPosition(menuWindow->GetWindow()).y;
-                // if (!menuWindow->getPause())
-                // {
+
                 if (event.type == sf::Event::MouseWheelMoved)
                 {
                     std::cout << "wheel movement: " << event.mouseWheel.delta << std::endl;
@@ -37,7 +35,7 @@ int main()
                     std::cout << "mouse y: " << event.mouseWheel.y << std::endl;
                 }
 
-                if (x >= 273 && x <= 356 && y >= 130 && y <= 154)
+                else if (x >= 273 && x <= 356 && y >= 130 && y <= 154)
                 {
                     m->underlignText(1);
                     if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
@@ -45,7 +43,7 @@ int main()
                         menuWindow->inverseIsMenu();
                     }
                 }
-                if (x >= 273 && x <= 369 && y >= 250 && y <= 275)
+                else if (x >= 273 && x <= 369 && y >= 250 && y <= 275)
                 {
                     m->underlignText(2);
                     if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
@@ -53,7 +51,7 @@ int main()
                         menuWindow->inverseIsMenu();
                     }
                 }
-                if (x >= 273 && x <= 336 && y >= 371 && y <= 393)
+                else if (x >= 273 && x <= 336 && y >= 371 && y <= 393)
                 {
                     m->underlignText(3);
                     if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
@@ -104,52 +102,10 @@ int main()
                     menuWindow->GetWindow().close();
                 }
                 menuWindow->GetWindow().clear();
-                //menuWindow->GetWindow().draw(m->getSprite());
                 m->draw(menuWindow->GetWindow());
                 menuWindow->GetWindow().display();
-
-                // else if (menuWindow->getPause())
-                // {
-                //     if (event.type == sf::Event::KeyReleased)
-                //     {
-                //         if (event.key.code == sf::Keyboard::Space)
-                //         {
-                //             m->relaunchMusic();
-                //             menuWindow->inversePause();
-                //         }
-                //     }
-                //     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-                //     {
-                //         m->MoveUp();
-                //     }
-                //     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-                //     {
-                //         m->MoveDown();
-                //     }
-
-                //     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && m->getSelectedItemIndex() == 0)
-                //     {
-                //         menuWindow->GetWindow().close();
-                //     }
-
-                //     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && m->getSelectedItemIndex() == 1)
-                //     {
-                //         menuWindow->GetWindow().close();
-                //     }
-
-                //     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) && m->getSelectedItemIndex() == 2)
-                //     {
-                //         menuWindow->GetWindow().close();
-                //     }
-
-                //     if (event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-                //     {
-                //         menuWindow->stopMusic();
-                //         menuWindow->GetWindow().close();
-                //         break;
-                //     }
-                // }
             }
+
             if (!menuWindow->getIsMenu())
             {
 
@@ -160,8 +116,6 @@ int main()
                 }
 
                 menuWindow->GetWindow().clear();
-
-                // draw everything here...
                 p->DefineShape();
                 menuWindow->GetWindow().draw(p->GetShape());
                 menuWindow->GetWindow().display();

@@ -17,6 +17,7 @@ public:
     void pauseMusic();
     void relaunchMusic();
     bool getIsMenu();
+    void inverseIsMenu();
 private:
     bool _isMenu = true;
     bool _pause = false;

@@ -50,6 +50,11 @@ void WindowManager::relaunchMusic()
     return _music.play();
 }
 
-bool WindowManager::getIsMenu(){
+bool WindowManager::getIsMenu()
+{
     return _isMenu;
+}
+void WindowManager::inverseIsMenu()
+{
+    _isMenu = !_isMenu;
 }

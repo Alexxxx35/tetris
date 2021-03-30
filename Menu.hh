@@ -12,7 +12,7 @@ private:
     unsigned int _width;  //normally take value of window
     unsigned int _height; //normally take value of window
     int const numberOfItems = 4;
-    int selectedItemIndex = 1;
+    int selectedItemIndex = 2;
     sf::Texture _texture;
     sf::Sprite _sprite;
     sf::Music _music;

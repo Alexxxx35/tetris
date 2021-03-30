@@ -49,3 +49,7 @@ void WindowManager::relaunchMusic()
 {
     return _music.play();
 }
+
+bool WindowManager::getIsMenu(){
+    return _isMenu;
+}

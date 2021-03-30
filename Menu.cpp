@@ -79,11 +79,8 @@ sf::Vector2f Menu::getTextPosition(int i)
 
 void Menu::MoveUp()
 {
-    if (selectedItemIndex < 1)
-    {
-        selectedItemIndex = 1;
-    }
-    else if (selectedItemIndex > 1)
+
+    if (selectedItemIndex > 1)
     {
         _text[selectedItemIndex].setFillColor(sf::Color::White);
         selectedItemIndex--;
@@ -93,11 +90,8 @@ void Menu::MoveUp()
 
 void Menu::MoveDown()
 {
-    if (selectedItemIndex > numberOfItems)
-    {
-        selectedItemIndex = numberOfItems - 1;
-    }
-    else if (selectedItemIndex < numberOfItems - 1)
+
+    if (selectedItemIndex < numberOfItems - 1)
     {
         _text[selectedItemIndex].setFillColor(sf::Color::White);
         selectedItemIndex++;
